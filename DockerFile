@@ -5,7 +5,7 @@ WORKDIR /build
 
 RUN export GO111MODULE=on
 RUN go install github.com/OsbornCollins/SysAdminProject/main@latest
-RUN cd /build && git clode https://github.com/OsbornCollins/SysAdminProject.git
+RUN cd /build && git clone https://github.com/OsbornCollins/SysAdminProject.git
 
 RUN cd /build/SysAdminProject/main && go build
 
