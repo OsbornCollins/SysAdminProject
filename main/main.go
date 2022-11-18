@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -24,4 +25,6 @@ func aboutMe(response http.ResponseWriter, r *http.Request) {
 func request1() {
 	http.HandleFunc("/", homePage)
 	http.HandleFunc("/aboutMe", aboutMe)
+
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }

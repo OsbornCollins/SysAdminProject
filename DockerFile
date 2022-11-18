@@ -1,0 +1,14 @@
+FROM golang:latest
+
+RUN mkdir /build
+WORKDIR /build
+
+RUN export GO111MODULE=on
+RUN go get github.com/OsbornCollins/SysAdminProject/main
+RUN cd /build && git clode https://github.com/OsbornCollins/SysAdminProject.git
+
+RUN cd /build/SysAdminProject/main && go build
+
+EXPOSE 8080
+
+ENTRYPOINT [ "/build/SysAdminProject/main/main" ]
